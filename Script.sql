@@ -106,3 +106,7 @@ select livro, editora from livros where uf = "SP";
 
 /* Dados dos autores do sexo masculino que tiveram publicados em sao paulo ou no rio de janeiro */
 select autor from livros where sexo = "M" and uf = "SP" or uf = "RJ";
+
+
+/*agrupadores*/
+select sexo, count(*) as "pessoas" from cliente group by sexo;
