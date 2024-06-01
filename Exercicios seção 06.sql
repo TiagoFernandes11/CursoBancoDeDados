@@ -1015,3 +1015,16 @@ insert into funcionarios values (999,'Kennedy','lkennedyrq@edublogs.org','Mascul
 insert into funcionarios values (1000,'Howard','showardrr@addtoany.com','Masculino','Bebês','11/7/2003',148687,'General Manager',3);
 
 /*Exercicios*/
+/*--Traga os funcionarios que trabalhem
+--no departamento de filmes OU no
+--departamento de roupas*/
+select count(*), departamento from funcionarios where departamento = "filmes" or departamento = "roupas" group by departamento;
+
+/*--O gestor de marketing pediu a lista das funcionarias (AS) = FEMININO que trabalhem no departamento 
+--de filmes ou no departamento lar. Ele necessita enviar um email para as colaboradoras
+--desses dois setores. OR +  AND */
+select count(*), departamento from funcionarios where sexo = "feminino" and (departamento = "filmes" or departamento = "lar") group by departamento;
+
+/*--Traga os funcionarios do sexo masculino
+--ou os funcionarios que trabalhem no setor Jardim*/
+select * from funcionarios where sexo = "masculino" or departamento = "jardim";
