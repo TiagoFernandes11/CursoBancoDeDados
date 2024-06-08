@@ -19,4 +19,8 @@ WHERE EMAIL IS NOT NULL;
 
 /*Clausula update*/
 
-select count(*) from funcionarios;
+select * from funcionarios WHERE (nome = "Wood" and email="kwoodrm@indiegogo.com");
+
+update funcionarios set nome = "Tiago" WHERE (nome = "Wood" and email="kwoodrm@indiegogo.com");
+
+delete from funcionarios where (nome = "Wood" and email="kwoodrm@indiegogo.com");
