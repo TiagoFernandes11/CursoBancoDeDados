@@ -1,3 +1,4 @@
+
 /* FILTRANDO VALORES NULOS */
 SELECT NOME, SEXO, ENDERECO
 FROM CLIENTE
@@ -15,3 +16,7 @@ SELECT NOME, SEXO, ENDERECO
 FROM CLIENTE
 WHERE EMAIL IS NOT NULL;
 /* IS OU IS NOT NULL */
+
+/*Clausula update*/
+
+select count(*) from funcionarios;
