@@ -24,3 +24,9 @@ select * from funcionarios WHERE (nome = "Wood" and email="kwoodrm@indiegogo.com
 update funcionarios set nome = "Tiago" WHERE (nome = "Wood" and email="kwoodrm@indiegogo.com");
 
 delete from funcionarios where (nome = "Wood" and email="kwoodrm@indiegogo.com");
+
+/*Selecao, projecao e juncao*/
+
+/*Projeção é tudo o que vc quer ver na tela*/
+
+select count(*) from funcionarios;
