@@ -59,4 +59,14 @@ INSERT INTO TELEFONE VALUES(NULL,'CEL','88687909',2);
 
 /*Fazendo junções*/
 
+/*Primeira maneira de fazer junção*/
+select IDcliente, nome, sexo, email, rua, bairro, cidade 
+from cliente, endereco 
+where idcliente = id_cliente;
 
+/*Usando join*/
+select nome, sexo, bairro, cidade
+from cliente
+inner join endereco
+on idcliente = id_cliente
+where cidade like("%JANEIRO");
