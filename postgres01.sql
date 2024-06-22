@@ -55,7 +55,7 @@ VALUES (11, 'Lucas', '12345678900', '131313', '1993-02-12', 'M', 'Analista de Si
 
 select * from cliente;
 
-select 'CPF: ' || cpf || 'RG: ' || rg as "rg e cpf" from cliente
+select 'CPF: ' || cpf || 'RG: ' || rg as "rg e cpf" from cliente;
 
 select nome, genero, profissao from cliente order by nome;
 
@@ -87,6 +87,8 @@ insert into profissao (idprofissao, nome) values (8, 'Administrador');
 insert into profissao (idprofissao, nome) values (9, 'Enfermeira');
 insert into profissao (idprofissao, nome) values (10, 'Analista de Sistemas');
 
+select * from profissao;
+
 create table nacionalidade(
 	idnacionalidade integer not null,
 	nome varchar(30) not null,
@@ -99,9 +101,44 @@ insert into nacionalidade (idnacionalidade, nome) values (2, 'Italiana');
 insert into nacionalidade (idnacionalidade, nome) values (3, 'Noter-americana');
 insert into nacionalidade (idnacionalidade, nome) values (4, 'Alemã');
 
+select * from nacionalidade;
+
 create table complemento (
 	idcomplemento integer not null,
 	nome varchar(30) not null,
 	constraint pk_cpl_idcomplemento primary key (idcomplemento),
 	constraint un_cp_nome unique (nome)
 );
+
+insert into complemento (idcomplemento, nome) values (1, 'Casa');
+insert into complemento (idcomplemento, nome) values (2, 'Apartamento');
+
+select * from complemento;
+
+create table bairro (
+	idbairro integer not null,
+	nome varchar(30) not null,
+	constraint pk_brr_idbairro primary key (idbairro),
+	constraint un_brr_nome unique(nome)
+);
+
+insert into bairro(idbairro, nome) values (1, 'Cidade Nova');
+insert into bairro(idbairro, nome) values (2, 'Centro');
+insert into bairro(idbairro, nome) values (3, 'São Pedro');
+insert into bairro(idbairro, nome) values (4, 'Santa Rosa');
+
+select * from bairro;
+
+-- alterando table cliente para receber foreign key --
+alter table cliente rename column profissao to idprofissao;
+alter table cliente drop column idprofissao;
+alter table cliente add idprofissao integer;
+alter table cliente add constraint fk_cln_idprofissao foreign key (idprofissao) references profissao(idprofissao);
+
+update cliente set idprofissao = 1 where idcliente in (1, 9, 10, 12, 15, 17);
+update cliente set idprofissao = 2 where idcliente = 2;
+update cliente set idprofissao = 3 where idcliente = 3;
+update cliente set idprofissao = 4 where idcliente in (4,5);
+update cliente set idprofissao = 5 where idcliente in (6, 7, 8, 13)
+
+select * from cliente;
