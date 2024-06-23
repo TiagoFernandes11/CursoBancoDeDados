@@ -162,3 +162,4 @@ update cliente set idbairro = 1 where idcliente in (1, 12, 13);
 update cliente set idbairro = 2 where idcliente in (2, 3, 6, 8, 9);
 update cliente set idbairro = 3 where idcliente in (4, 5);
 update cliente set idbairro = 4 where idcliente in (7);
+
